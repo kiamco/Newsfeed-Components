@@ -112,4 +112,13 @@ const data = [{
 
 */
 
-// create ar
+// create article component
+const createArticle = (articlObj) => {
+    const article = document.querySelector('.articles');
+    const title = document.createElement('h2');
+    const date = document.createElement('p');
+    const p1 = document.createElement('p');
+    const p2 = document.createElement('p');
+    const p3 = document.createElement('p');
+    const btn = document.createElement('span');
+}
