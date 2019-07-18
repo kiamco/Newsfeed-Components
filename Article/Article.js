@@ -115,7 +115,7 @@ const data = [{
 // create article component
 const createArticle = (articleArr, articleNum) => {
 
-    //secret truncating technique
+    //ultimate secret truncating technique
     articleArr.length = articleNum;
 
     //create elements
@@ -140,7 +140,7 @@ const createArticle = (articleArr, articleNum) => {
     article.appendChild(p3);
     article.appendChild(btn);
 
-    //iterate through article object
+    //iterate through article object and assign text content
     articleArr.forEach((el, index) => {
         title.textContent = el.title;
         date.textContent = el.date;
@@ -150,6 +150,7 @@ const createArticle = (articleArr, articleNum) => {
         btn.textContent = "expand";
     });
 
+    // exapnd when click
     btn.addEventListener('click', el => article.classList.toggle('article-open'));
 
     return article;
