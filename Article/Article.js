@@ -113,12 +113,57 @@ const data = [{
 */
 
 // create article component
-const createArticle = (articlObj) => {
-    const article = document.querySelector('.articles');
+const createArticle = (articleArr, articleNum) => {
+
+    //secret truncating technique
+    articleArr.length = articleNum;
+
+    //create elements
+    const article = document.createElement('div');
     const title = document.createElement('h2');
     const date = document.createElement('p');
     const p1 = document.createElement('p');
     const p2 = document.createElement('p');
     const p3 = document.createElement('p');
     const btn = document.createElement('span');
+
+    //add class
+    article.classList.add('article');
+    date.classList.add('date');
+    btn.classList.add('expandButton');
+
+    //append elements
+    article.appendChild(title);
+    article.appendChild(date);
+    article.appendChild(p1);
+    article.appendChild(p2);
+    article.appendChild(p3);
+    article.appendChild(btn);
+
+    //iterate through article object
+    articleArr.forEach((el, index) => {
+        title.textContent = el.title;
+        date.textContent = el.date;
+        p1.textContent = el.firstParagraph;
+        p2.textContent = el.secondParagraph;
+        p3.textContent = el.thirdParagraph;
+        btn.textContent = "expand";
+    });
+
+    btn.addEventListener('click', el => article.classList.toggle('article-open'));
+
+    return article;
 }
+
+const parentArticle = document.querySelector('.articles');
+
+//create article
+const newArticle4 = createArticle(data, 4);
+const newArticle3 = createArticle(data, 3);
+const newArticle2 = createArticle(data, 2);
+const newArticle1 = createArticle(data, 1);
+
+parentArticle.appendChild(newArticle1);
+parentArticle.appendChild(newArticle2);
+parentArticle.appendChild(newArticle3);
+parentArticle.appendChild(newArticle4);
